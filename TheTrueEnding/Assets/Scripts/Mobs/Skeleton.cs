@@ -2,36 +2,45 @@ using UnityEngine;
 
 public class Skeleton : MonoBehaviour
 {
-    public GameObject arrowPrefab;  // Arrow prefab to be instantiated
-    public Transform firePoint;     // The point from which the arrow is shot
-    public Transform knight;        // Reference to the Knight's position
-    public float attackRange = 2f; // Range at which the skeleton can shoot the arrow
-    public float fireRate = 2f;     // Time between each arrow shot
-    private float nextFireTime = 0f; // Time control for next shot
+    [SerializeField]
+    private GameObject _arrowPrefab;
+    [SerializeField]
+    private Transform _knight;
+    [SerializeField]
+    private float _attackRange = 2f;
+    [SerializeField]
+    private float _fireRate = 2f;
+    private float _nextFireTime = 0f;
+    private Transform _firePoint;
 
+    private void Awake()
+    {
+        this._firePoint = GetComponent<Transform>();
+    }
     private void Update()
     {
-        // Check if the knight is within range
-        float distanceToKnight = Vector2.Distance(transform.position, knight.position);
+        float distanceToKnight = Vector2.Distance(transform.position, this._knight.position);
 
-        if (distanceToKnight <= attackRange && Time.time >= nextFireTime)
+        if (distanceToKnight <= this._attackRange 
+            && Time.time >= this._nextFireTime)
         {
-            // If the knight is within range, shoot an arrow
             ShootArrow();
-            nextFireTime = Time.time + fireRate;  // Set the next fire time
+            this._nextFireTime = Time.time + this._fireRate;
         }
     }
 
     private void ShootArrow()
     {
-        // Create the arrow at the fire point
-        GameObject arrow = Instantiate(arrowPrefab, firePoint.position, firePoint.rotation);
+        GameObject arrow = Instantiate(this._arrowPrefab, this._firePoint.position, this._firePoint.rotation);
 
-        // Get the Arrow script and set the knight as the target
         Arrow arrowScript = arrow.GetComponent<Arrow>();
         if (arrowScript != null)
         {
-            arrowScript.SetTarget(knight.transform.position);  // Assign the knight as the arrow's target
+            arrowScript.SetTarget(this._knight.transform.position);
         }
+    }
+    public void Death()
+    {
+        Destroy(gameObject);
     }
 }
