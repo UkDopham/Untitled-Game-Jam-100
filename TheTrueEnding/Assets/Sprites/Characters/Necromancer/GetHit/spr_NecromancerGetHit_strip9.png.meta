@@ -360,7 +360,16 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_NecromancerGetHit_strip9_0: -1630864493972753570
+      spr_NecromancerGetHit_strip9_1: -5867652406836381032
+      spr_NecromancerGetHit_strip9_2: -3439270187445399680
+      spr_NecromancerGetHit_strip9_3: -4419315937671319318
+      spr_NecromancerGetHit_strip9_4: 5074589771737246803
+      spr_NecromancerGetHit_strip9_5: 5294903283597860646
+      spr_NecromancerGetHit_strip9_6: -4013607445788800056
+      spr_NecromancerGetHit_strip9_7: -1004807860662605918
+      spr_NecromancerGetHit_strip9_8: 3135852221386551856
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

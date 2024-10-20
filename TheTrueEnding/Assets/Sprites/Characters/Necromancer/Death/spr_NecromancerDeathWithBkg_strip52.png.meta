@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_NecromancerDeathWithBkg_strip52_0: -3224261698115319201
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

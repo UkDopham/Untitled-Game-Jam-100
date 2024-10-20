@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_NecromancerGetHitEffect_strip9_0: 2498137161289038760
+      spr_NecromancerGetHitEffect_strip9_1: -1803323680679913368
+      spr_NecromancerGetHitEffect_strip9_2: -8622609605121328109
+      spr_NecromancerGetHitEffect_strip9_3: -1766225176742492353
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

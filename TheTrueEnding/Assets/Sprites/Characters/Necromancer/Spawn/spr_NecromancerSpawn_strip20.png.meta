@@ -1060,7 +1060,44 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_NecromancerSpawn_strip20_0: -8263516518345711615
+      spr_NecromancerSpawn_strip20_1: 1109223571707968910
+      spr_NecromancerSpawn_strip20_10: 1274620910276175185
+      spr_NecromancerSpawn_strip20_11: 4785905239221952229
+      spr_NecromancerSpawn_strip20_12: -8798745647032564023
+      spr_NecromancerSpawn_strip20_13: 8057331041162559490
+      spr_NecromancerSpawn_strip20_14: 2893183024947202730
+      spr_NecromancerSpawn_strip20_15: 8366151264538786284
+      spr_NecromancerSpawn_strip20_16: 4082811722497470727
+      spr_NecromancerSpawn_strip20_17: -2609797481688676857
+      spr_NecromancerSpawn_strip20_18: 7332212083438305801
+      spr_NecromancerSpawn_strip20_19: 9010275143344289921
+      spr_NecromancerSpawn_strip20_2: -652067743207428002
+      spr_NecromancerSpawn_strip20_20: 3723839805993996112
+      spr_NecromancerSpawn_strip20_21: -8345669391019059006
+      spr_NecromancerSpawn_strip20_22: 8864317401238206489
+      spr_NecromancerSpawn_strip20_23: 8834015518086796015
+      spr_NecromancerSpawn_strip20_24: 1162497879166532911
+      spr_NecromancerSpawn_strip20_25: -8093670991350090409
+      spr_NecromancerSpawn_strip20_26: 6335037449296406729
+      spr_NecromancerSpawn_strip20_27: 765662099748868785
+      spr_NecromancerSpawn_strip20_28: -6854395487841438935
+      spr_NecromancerSpawn_strip20_29: 7024874431752150676
+      spr_NecromancerSpawn_strip20_3: 7319438543226036429
+      spr_NecromancerSpawn_strip20_30: -8051799770888446028
+      spr_NecromancerSpawn_strip20_31: 448834746508331704
+      spr_NecromancerSpawn_strip20_32: 7270868332072626156
+      spr_NecromancerSpawn_strip20_33: -372834997668225985
+      spr_NecromancerSpawn_strip20_34: 5842053540425251224
+      spr_NecromancerSpawn_strip20_35: 5902529662693464972
+      spr_NecromancerSpawn_strip20_36: -2547918140608727934
+      spr_NecromancerSpawn_strip20_4: -2400318309705621599
+      spr_NecromancerSpawn_strip20_5: -297283676478107450
+      spr_NecromancerSpawn_strip20_6: 2258899348834075803
+      spr_NecromancerSpawn_strip20_7: 7173362407304241814
+      spr_NecromancerSpawn_strip20_8: -4761613430588254572
+      spr_NecromancerSpawn_strip20_9: 7761620033335723310
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

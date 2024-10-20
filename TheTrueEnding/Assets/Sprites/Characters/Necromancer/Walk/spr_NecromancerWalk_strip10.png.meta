@@ -385,7 +385,17 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_NecromancerWalk_strip10_0: -2938945536230279035
+      spr_NecromancerWalk_strip10_1: -863673190048772123
+      spr_NecromancerWalk_strip10_2: 5092055082311784232
+      spr_NecromancerWalk_strip10_3: 5143412480196203744
+      spr_NecromancerWalk_strip10_4: -8654410189734529549
+      spr_NecromancerWalk_strip10_5: 4254840075753415809
+      spr_NecromancerWalk_strip10_6: 3921548956546487213
+      spr_NecromancerWalk_strip10_7: -5184005032274001908
+      spr_NecromancerWalk_strip10_8: -216489218795519014
+      spr_NecromancerWalk_strip10_9: 8927493871987038283
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

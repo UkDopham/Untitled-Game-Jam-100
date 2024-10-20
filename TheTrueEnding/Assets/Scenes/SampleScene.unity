@@ -450,6 +450,7 @@ GameObject:
   - component: {fileID: 604196684}
   - component: {fileID: 604196685}
   - component: {fileID: 604196686}
+  - component: {fileID: 604196687}
   m_Layer: 0
   m_Name: Knight
   m_TagString: Untagged
@@ -501,7 +502,7 @@ SpriteRenderer:
   m_SortingLayerID: 1131914083
   m_SortingLayer: 2
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4035959289877228764, guid: e00d51341784694428640a1b04459d92, type: 3}
+  m_Sprite: {fileID: 4944230376442633554, guid: 7d42f27a306fb084d8eacd0a81245e4c, type: 3}
   m_Color: {r: 0.9622642, g: 0.94864726, b: 0.94864726, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -577,7 +578,7 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.8333333, y: 0.9166667}
+    oldSize: {x: 0.875, y: 0.9583333}
     newSize: {x: 1, y: 1}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
@@ -627,6 +628,28 @@ MonoBehaviour:
   moveSpeed: 3
   groundTilemap: {fileID: 1976235042}
   wallTilemap: {fileID: 1863764847}
+--- !u!95 &604196687
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 604196680}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 299689254973e6c47b5fd68585528aa9, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0

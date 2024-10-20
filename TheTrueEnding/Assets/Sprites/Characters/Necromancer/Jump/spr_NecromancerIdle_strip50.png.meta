@@ -435,7 +435,19 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_NecromancerIdle_strip50_0: 7626730168138988562
+      spr_NecromancerIdle_strip50_1: 8520106110633537520
+      spr_NecromancerIdle_strip50_10: -2216560630174716910
+      spr_NecromancerIdle_strip50_11: 7378274676278831671
+      spr_NecromancerIdle_strip50_2: 511074625953098909
+      spr_NecromancerIdle_strip50_3: -8343890166542191981
+      spr_NecromancerIdle_strip50_4: -9057659419877727767
+      spr_NecromancerIdle_strip50_5: 7549454703321076850
+      spr_NecromancerIdle_strip50_6: -3669759363705498792
+      spr_NecromancerIdle_strip50_7: -7950296900180702161
+      spr_NecromancerIdle_strip50_8: -6583449464043404880
+      spr_NecromancerIdle_strip50_9: 4982982909676871316
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

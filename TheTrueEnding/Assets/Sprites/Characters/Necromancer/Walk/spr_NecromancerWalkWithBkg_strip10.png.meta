@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_NecromancerWalkWithBkg_strip10_0: 8442502401950992444
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -1810,7 +1810,74 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_NecromancerDeath_strip52_0: 41645739032306438
+      spr_NecromancerDeath_strip52_1: -7556653044375395377
+      spr_NecromancerDeath_strip52_10: -8012023855802784492
+      spr_NecromancerDeath_strip52_11: -4506086695519574893
+      spr_NecromancerDeath_strip52_12: -1933212448260223988
+      spr_NecromancerDeath_strip52_13: 2131865315235899076
+      spr_NecromancerDeath_strip52_14: -8492263987603032781
+      spr_NecromancerDeath_strip52_15: -7154360395822464742
+      spr_NecromancerDeath_strip52_16: -6699678092687566343
+      spr_NecromancerDeath_strip52_17: 9140947321277303475
+      spr_NecromancerDeath_strip52_18: 389039983149116103
+      spr_NecromancerDeath_strip52_19: -5923295512163779517
+      spr_NecromancerDeath_strip52_2: 8549620951301678368
+      spr_NecromancerDeath_strip52_20: -6141442476568918217
+      spr_NecromancerDeath_strip52_21: -8448226585653621332
+      spr_NecromancerDeath_strip52_22: -1776012908226619018
+      spr_NecromancerDeath_strip52_23: 7167146883967364848
+      spr_NecromancerDeath_strip52_24: -2037267611464637026
+      spr_NecromancerDeath_strip52_25: 6863989947339194045
+      spr_NecromancerDeath_strip52_26: -4880811882265595023
+      spr_NecromancerDeath_strip52_27: 483506181609079270
+      spr_NecromancerDeath_strip52_28: 8277223400224894373
+      spr_NecromancerDeath_strip52_29: 1327043874151176700
+      spr_NecromancerDeath_strip52_3: 1934420331750150030
+      spr_NecromancerDeath_strip52_30: -8668462600245580413
+      spr_NecromancerDeath_strip52_31: -7565300027213080609
+      spr_NecromancerDeath_strip52_32: -6851068893697143634
+      spr_NecromancerDeath_strip52_33: -244105522390627202
+      spr_NecromancerDeath_strip52_34: 8391554068586865071
+      spr_NecromancerDeath_strip52_35: -1890446419956754295
+      spr_NecromancerDeath_strip52_36: 7086568986414181544
+      spr_NecromancerDeath_strip52_37: -7711679858305477971
+      spr_NecromancerDeath_strip52_38: -2928294089660515343
+      spr_NecromancerDeath_strip52_39: -7189178631606632069
+      spr_NecromancerDeath_strip52_4: -1328928057053745002
+      spr_NecromancerDeath_strip52_40: 2953480879001959040
+      spr_NecromancerDeath_strip52_41: -1482280706001360015
+      spr_NecromancerDeath_strip52_42: 348920704830488746
+      spr_NecromancerDeath_strip52_43: 6594895848317998007
+      spr_NecromancerDeath_strip52_44: -3426002621819370527
+      spr_NecromancerDeath_strip52_45: 5640113671537712245
+      spr_NecromancerDeath_strip52_46: 5152958565975848853
+      spr_NecromancerDeath_strip52_47: -4359932572279588963
+      spr_NecromancerDeath_strip52_48: -4852291911776808369
+      spr_NecromancerDeath_strip52_49: 8445432819973480038
+      spr_NecromancerDeath_strip52_5: 1572974103243608034
+      spr_NecromancerDeath_strip52_50: 2909892461172020223
+      spr_NecromancerDeath_strip52_51: 290189062400376939
+      spr_NecromancerDeath_strip52_52: -1410302586055288321
+      spr_NecromancerDeath_strip52_53: 1235588624979289532
+      spr_NecromancerDeath_strip52_54: 4281002431075831680
+      spr_NecromancerDeath_strip52_55: -5798455294700065391
+      spr_NecromancerDeath_strip52_56: -2298339035738878913
+      spr_NecromancerDeath_strip52_57: -4486175137719896509
+      spr_NecromancerDeath_strip52_58: 3496297437269102440
+      spr_NecromancerDeath_strip52_59: -3104606818680387430
+      spr_NecromancerDeath_strip52_6: -8680307548638414284
+      spr_NecromancerDeath_strip52_60: -5173999781603744161
+      spr_NecromancerDeath_strip52_61: 7434916430933454662
+      spr_NecromancerDeath_strip52_62: 1910919923269749652
+      spr_NecromancerDeath_strip52_63: -4719120552198122240
+      spr_NecromancerDeath_strip52_64: -2079372120524120987
+      spr_NecromancerDeath_strip52_65: 5925600381246070281
+      spr_NecromancerDeath_strip52_66: 7780459985939536697
+      spr_NecromancerDeath_strip52_7: 6518145319000833218
+      spr_NecromancerDeath_strip52_8: -5970399069763582463
+      spr_NecromancerDeath_strip52_9: 8167870879564189590
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
