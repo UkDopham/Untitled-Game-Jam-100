@@ -25,15 +25,15 @@ public class KnightMovement : MonoBehaviour
     {
         Vector3 worldPosition = transform.position;
         this._currentGridPosition = this._groundTilemap.WorldToCell(worldPosition);
-        this.SnapToGrid();
+        SnapToGrid();
 
-        this.MoveTo(this._directions[this._currentDirectionIndex]);
+        MoveTo(this._directions[this._currentDirectionIndex]);
     }
     private void Update()
     {
         if (this._isMoving)
         {
-            this.MoveKnight();
+            MoveKnight();
         }
     }
     private void MoveTo(Vector3Int direction)
@@ -48,14 +48,13 @@ public class KnightMovement : MonoBehaviour
         }
         else
         {
-            this.ChangeDirection();
+            ChangeDirection();
         }
     }
     private bool IsTileWalkable(Vector3Int gridPosition)
     {
         TileBase groundTile = this._groundTilemap.GetTile(gridPosition);
         TileBase wallTile = this._wallTilemap.GetTile(gridPosition);
-
         return groundTile != null && wallTile == null;
     }
     private void MoveKnight()
@@ -65,9 +64,9 @@ public class KnightMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, this._targetPosition) < 0.01f)
         {
             this._isMoving = false;
-            this.SnapToGrid();
+            SnapToGrid();
 
-            this.MoveTo(this._directions[this._currentDirectionIndex]);
+            MoveTo(this._directions[this._currentDirectionIndex]);
         }
     }
     private void SnapToGrid()
@@ -78,12 +77,35 @@ public class KnightMovement : MonoBehaviour
     {
         this._currentDirectionIndex = (this._currentDirectionIndex + 1) % this._directions.Length;
 
-        this.MoveTo(this._directions[this._currentDirectionIndex]);
+        MoveTo(this._directions[this._currentDirectionIndex]);
     }
     public void ChangeToOppositeDirection()
     {
-        this._currentDirectionIndex = (this._currentDirectionIndex + 2) % this._directions.Length;
+        this._currentDirectionIndex = GetOppositeDirectionIndex(this._currentDirectionIndex);
 
-        this.MoveTo(this._directions[this._currentDirectionIndex]);
+        MoveTo(this._directions[this._currentDirectionIndex]);
+    }
+    private int GetOppositeDirectionIndex(int directionIndex)
+    {
+        switch(directionIndex)
+        {
+            case 0:  
+                // Up -> Down
+                return 1;
+
+            case 1:
+                // Down -> Up
+                return 0;
+
+            case 2:
+                // Left -> Right
+                return 3;
+
+            case 3:
+                // Right -> Left
+                return 2;
+        }
+
+        return 0;
     }
 }
