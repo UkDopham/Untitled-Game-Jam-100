@@ -16,7 +16,6 @@ public class Item : MonoBehaviour
 
         this._knightCollider = GameObject.FindAnyObjectByType<Knight>().GetComponent<Collider2D>();
     }
-
     private void Update()
     {
         if (this._isDragging 
@@ -26,12 +25,10 @@ public class Item : MonoBehaviour
             transform.position = new Vector3(mousePos.x, mousePos.y, transform.position.z);
         }
     }
-
     private void OnMouseDown()
     {
         this._isDragging = true;
     }
-
     private void OnMouseUp()
     {
         this._isDragging = false;
@@ -49,12 +46,10 @@ public class Item : MonoBehaviour
             }
         }
     }
-
     private bool IsItemDroppedOnKnight()
     {
         return this._knightCollider.bounds.Contains(transform.position);
     }
-
     private void GiveItemToKnight()
     {
         Knight knight = this._knightCollider.GetComponent<Knight>();
@@ -65,7 +60,6 @@ public class Item : MonoBehaviour
             Destroy(gameObject);
         }
     }
-
     private void ResetItemPosition()
     {
         transform.position = this._startPosition;

@@ -5,15 +5,18 @@ public class Skeleton : MonoBehaviour
     [SerializeField]
     private GameObject _arrowPrefab;
     [SerializeField]
-    private Transform _firePoint;
-    [SerializeField]
     private Transform _knight;
     [SerializeField]
     private float _attackRange = 2f;
     [SerializeField]
     private float _fireRate = 2f;
     private float _nextFireTime = 0f;
+    private Transform _firePoint;
 
+    private void Awake()
+    {
+        this._firePoint = GetComponent<Transform>();
+    }
     private void Update()
     {
         float distanceToKnight = Vector2.Distance(transform.position, this._knight.position);
@@ -35,5 +38,9 @@ public class Skeleton : MonoBehaviour
         {
             arrowScript.SetTarget(this._knight.transform.position);
         }
+    }
+    public void Death()
+    {
+        Destroy(gameObject);
     }
 }
