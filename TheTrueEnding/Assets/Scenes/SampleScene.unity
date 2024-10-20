@@ -863,6 +863,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a30e1576350b5541952bc6dc310b431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _moveSpeed: 3
+  _groundTilemap: {fileID: 1976235042}
+  _wallTilemap: {fileID: 1863764847}
 --- !u!95 &604196687
 Animator:
   serializedVersion: 7
@@ -885,9 +888,6 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
-  _moveSpeed: 3
-  _groundTilemap: {fileID: 1976235042}
-  _wallTilemap: {fileID: 1863764847}
 --- !u!1 &619394800
 GameObject:
   m_ObjectHideFlags: 0
