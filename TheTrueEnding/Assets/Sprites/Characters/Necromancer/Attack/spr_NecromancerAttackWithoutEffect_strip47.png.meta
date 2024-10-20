@@ -1310,7 +1310,54 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      spr_NecromancerAttackWithoutEffect_strip47_0: 1416481634790327154
+      spr_NecromancerAttackWithoutEffect_strip47_1: 5250061491709415780
+      spr_NecromancerAttackWithoutEffect_strip47_10: -8611610355104579233
+      spr_NecromancerAttackWithoutEffect_strip47_11: 633692937457205842
+      spr_NecromancerAttackWithoutEffect_strip47_12: -2455299671739922232
+      spr_NecromancerAttackWithoutEffect_strip47_13: -2377871861315307715
+      spr_NecromancerAttackWithoutEffect_strip47_14: 3879261448262036218
+      spr_NecromancerAttackWithoutEffect_strip47_15: 112396012140397539
+      spr_NecromancerAttackWithoutEffect_strip47_16: 8228989243173967308
+      spr_NecromancerAttackWithoutEffect_strip47_17: 7462458235997931431
+      spr_NecromancerAttackWithoutEffect_strip47_18: 6568393434860695346
+      spr_NecromancerAttackWithoutEffect_strip47_19: 4142739712832111827
+      spr_NecromancerAttackWithoutEffect_strip47_2: -2721536806461939310
+      spr_NecromancerAttackWithoutEffect_strip47_20: -3014785802180567777
+      spr_NecromancerAttackWithoutEffect_strip47_21: 6989989738814438296
+      spr_NecromancerAttackWithoutEffect_strip47_22: -8608777667215325978
+      spr_NecromancerAttackWithoutEffect_strip47_23: -567518099197167207
+      spr_NecromancerAttackWithoutEffect_strip47_24: 683534296901110658
+      spr_NecromancerAttackWithoutEffect_strip47_25: 8577431355690032668
+      spr_NecromancerAttackWithoutEffect_strip47_26: 8874555607203265875
+      spr_NecromancerAttackWithoutEffect_strip47_27: 3202684260213251194
+      spr_NecromancerAttackWithoutEffect_strip47_28: 8749736545633999374
+      spr_NecromancerAttackWithoutEffect_strip47_29: -4964486281847088108
+      spr_NecromancerAttackWithoutEffect_strip47_3: 4487443734849028256
+      spr_NecromancerAttackWithoutEffect_strip47_30: -3309127335192232646
+      spr_NecromancerAttackWithoutEffect_strip47_31: 901946372425729115
+      spr_NecromancerAttackWithoutEffect_strip47_32: 770611498923377663
+      spr_NecromancerAttackWithoutEffect_strip47_33: -4584790442283476289
+      spr_NecromancerAttackWithoutEffect_strip47_34: 2956545569078833520
+      spr_NecromancerAttackWithoutEffect_strip47_35: -6257103456372342771
+      spr_NecromancerAttackWithoutEffect_strip47_36: 776428030197443719
+      spr_NecromancerAttackWithoutEffect_strip47_37: -7305867891306413503
+      spr_NecromancerAttackWithoutEffect_strip47_38: 4235152915978593252
+      spr_NecromancerAttackWithoutEffect_strip47_39: 8762408268139498398
+      spr_NecromancerAttackWithoutEffect_strip47_4: 7201493103647295806
+      spr_NecromancerAttackWithoutEffect_strip47_40: 1059428715441174601
+      spr_NecromancerAttackWithoutEffect_strip47_41: -2444668628934047032
+      spr_NecromancerAttackWithoutEffect_strip47_42: -3960604614907148361
+      spr_NecromancerAttackWithoutEffect_strip47_43: -5355265283521970199
+      spr_NecromancerAttackWithoutEffect_strip47_44: -3461759367861056793
+      spr_NecromancerAttackWithoutEffect_strip47_45: 1870723661549824951
+      spr_NecromancerAttackWithoutEffect_strip47_46: -1040010364878650539
+      spr_NecromancerAttackWithoutEffect_strip47_5: -1265826900876080712
+      spr_NecromancerAttackWithoutEffect_strip47_6: -6657919311102227649
+      spr_NecromancerAttackWithoutEffect_strip47_7: -6695576267168823511
+      spr_NecromancerAttackWithoutEffect_strip47_8: -8611864835146381834
+      spr_NecromancerAttackWithoutEffect_strip47_9: 5834276445418177586
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

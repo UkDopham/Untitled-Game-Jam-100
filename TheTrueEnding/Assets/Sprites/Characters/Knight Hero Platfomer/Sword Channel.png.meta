@@ -260,7 +260,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Sword Channel_0: 8835686335494112833
+      Sword Channel_1: -5847911937096489448
+      Sword Channel_2: 6072215689580814709
+      Sword Channel_3: -4308033367771314531
+      Sword Channel_4: 4868093993209081769
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

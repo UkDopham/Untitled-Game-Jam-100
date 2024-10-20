@@ -260,7 +260,12 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Combat Ready Idle_0: -215477124910749318
+      Combat Ready Idle_1: 3256040400616922840
+      Combat Ready Idle_2: 8249682811463565947
+      Combat Ready Idle_3: 6952289527152452570
+      Combat Ready Idle_4: -7464365564931871107
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

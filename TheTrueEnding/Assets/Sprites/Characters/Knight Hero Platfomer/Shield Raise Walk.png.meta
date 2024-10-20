@@ -285,7 +285,13 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Shield Raise Walk_0: -854440482616733436
+      Shield Raise Walk_1: -4225698718602593935
+      Shield Raise Walk_2: 3406272791460891866
+      Shield Raise Walk_3: -6136037459014697178
+      Shield Raise Walk_4: -3767972558765123773
+      Shield Raise Walk_5: -3427511240115781640
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
