@@ -59,6 +59,13 @@ public class Knight : MonoBehaviour
             }
         }
 
+        Ending ending = other.GetComponent<Ending>();
+        if (ending != null)
+        {
+            ending.Interact(this._items);
+            return;
+        }
+
         Skeleton skeleton = other.GetComponent<Skeleton>();
 
         if (skeleton == null)
@@ -70,5 +77,6 @@ public class Knight : MonoBehaviour
         {
             skeleton.Death();
         }
+            
     }
 }

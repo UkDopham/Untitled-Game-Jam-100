@@ -9,6 +9,9 @@ public class KnightMovement : MonoBehaviour
     private Tilemap _groundTilemap;
     [SerializeField]
     private Tilemap _wallTilemap;
+    [SerializeField]
+    [Range(0, 3)]
+    private int _currentDirectionIndex = 3;
 
     private Vector3Int _currentGridPosition;
     private bool _isMoving = false;
@@ -20,7 +23,6 @@ public class KnightMovement : MonoBehaviour
         Vector3Int.left,
         Vector3Int.right
     };
-    private int _currentDirectionIndex = 0;
     private void Start()
     {
         Vector3 worldPosition = transform.position;
