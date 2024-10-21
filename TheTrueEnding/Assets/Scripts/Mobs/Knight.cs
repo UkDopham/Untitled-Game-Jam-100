@@ -49,11 +49,7 @@ public class Knight : MonoBehaviour
         Door door = other.GetComponent<Door>();
         if (door != null)
         {
-            if (this._items.Contains(ItemType.Key))
-            {
-                door.Open();
-            }
-            else
+            if (!door.isOpen)
             {
                 this._knightMovement.ChangeToOppositeDirection();
             }
