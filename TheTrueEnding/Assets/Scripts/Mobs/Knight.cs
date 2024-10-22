@@ -62,6 +62,12 @@ public class Knight : MonoBehaviour
             return;
         }
 
+        Scroll scroll = other.GetComponent<Scroll>();
+        if (scroll != null)
+        {
+            return;
+        }
+
         Skeleton skeleton = other.GetComponent<Skeleton>();
 
         if (skeleton == null)
