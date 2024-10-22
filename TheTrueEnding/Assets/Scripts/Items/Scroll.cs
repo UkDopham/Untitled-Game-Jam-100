@@ -5,12 +5,14 @@ public class Scroll : MonoBehaviour
     [SerializeField]
     [TextArea(10, 10)]
     private string _text;
-    
-    public string Text
+    private ScrollUI _scrollUI;
+
+    private void Awake()
     {
-        get
-        {
-            return _text;
-        }
+       this._scrollUI = FindAnyObjectByType<ScrollUI>();
+    }
+    public void DisplayScroll()
+    {
+        this._scrollUI.DisplayScroll(this._text);
     }
 }

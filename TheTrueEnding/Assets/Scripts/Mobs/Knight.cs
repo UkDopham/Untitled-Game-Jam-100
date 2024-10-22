@@ -68,6 +68,7 @@ public class Knight : MonoBehaviour
         Scroll scroll = other.GetComponent<Scroll>();
         if (scroll != null)
         {
+            scroll.DisplayScroll();
             return;
         }
 

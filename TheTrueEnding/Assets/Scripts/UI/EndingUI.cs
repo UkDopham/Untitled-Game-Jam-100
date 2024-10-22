@@ -1,4 +1,3 @@
-using Assets.Scripts.Constants;
 using TMPro;
 using UnityEngine;
 
