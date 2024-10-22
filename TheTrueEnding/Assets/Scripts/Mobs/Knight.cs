@@ -48,6 +48,28 @@ public class Knight : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D other)
     {
         string name = other.gameObject.name;
+        
+        Door door = other.GetComponent<Door>();
+        if (door != null)
+        {
+            if (!door.isOpen)
+            {
+                this._knightMovement.ChangeToOppositeDirection();
+            }
+        }
+
+        Ending ending = other.GetComponent<Ending>();
+        if (ending != null)
+        {
+            ending.Interact(this._items);
+            return;
+        }
+
+        Scroll scroll = other.GetComponent<Scroll>();
+        if (scroll != null)
+        {
+            return;
+        }
 
         Skeleton skeleton = other.GetComponent<Skeleton>();
 
@@ -60,5 +82,6 @@ public class Knight : MonoBehaviour
         {
             skeleton.Death();
         }
+            
     }
 }
