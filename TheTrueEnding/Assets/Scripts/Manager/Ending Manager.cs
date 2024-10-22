@@ -1,6 +1,7 @@
-using UnityEngine;
+using Assets.Scripts.Constants;
+using System.Collections.Generic;
 
 public class EndingManager
 {
-    public static int CurrentEndingCount = 0;
+    public static List<Endings> CurrentEndings = new List<Endings>();
 }

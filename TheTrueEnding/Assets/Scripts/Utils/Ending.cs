@@ -1,3 +1,4 @@
+using Assets.Scripts.Constants;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -8,10 +9,13 @@ public class Ending : MonoBehaviour
     private string _endingText;
     [SerializeField]
     private List<ItemType> _endingConditions = new List<ItemType>();
+    [SerializeField]
+    private Endings _endingType;
+    private EndingUI _endingUI;
 
     private void Awake()
     {
-        
+        this._endingUI = FindAnyObjectByType<EndingUI>();
     }
     public void Interact(List<ItemType> itemTypes)
     {
@@ -39,7 +43,8 @@ public class Ending : MonoBehaviour
     private void End()
     {
         print("END");
-        EndingManager.CurrentEndingCount++;
+        EndingManager.CurrentEndings.Add(this._endingType);
         Time.timeScale = 0f;
+        this._endingUI.LoadEndingText(this._endingText);
     }
 }
