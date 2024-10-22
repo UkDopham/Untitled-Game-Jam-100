@@ -11,10 +11,12 @@ public class Knight : MonoBehaviour
     private EmotionManager _emotionManager;
     private List<ItemType> _items = new List<ItemType>();
     private KnightMovement _knightMovement;
+    private Animator _animator;
 
     private void Awake()
     {
         this._knightMovement = GetComponent<KnightMovement>();
+        this._animator = GetComponent<Animator>();
     }
     public void AddItem(ItemType type)
     {
@@ -35,9 +37,10 @@ public class Knight : MonoBehaviour
 
         if (this._items.Contains(ItemType.Shield))
         {
+            this._animator.SetTrigger("shield");
             return;
         }
-
+        this._animator.SetTrigger("hit");
         //Sprite emotionSprite = this._emotionManager.GetSpriteByEmotion(Emotion.Scared);
         //this._emotionSpriteRenderer.sprite = emotionSprite;
         this._knightMovement.ChangeToOppositeDirection();
