@@ -4,8 +4,15 @@ using UnityEngine;
 public class Ending : MonoBehaviour
 {
     [SerializeField]
+    [TextArea(10, 10)]
+    private string _endingText;
+    [SerializeField]
     private List<ItemType> _endingConditions = new List<ItemType>();
 
+    private void Awake()
+    {
+        
+    }
     public void Interact(List<ItemType> itemTypes)
     {
         bool isContitionsMet = IsContitionsMet(itemTypes);
@@ -16,8 +23,7 @@ public class Ending : MonoBehaviour
         }
 
         // End
-        print("END");
-        Time.timeScale = 0f;
+        End();
     }
     private bool IsContitionsMet(List<ItemType> itemTypes)
     {
@@ -29,5 +35,11 @@ public class Ending : MonoBehaviour
             }
         }
         return true;
+    }
+    private void End()
+    {
+        print("END");
+        EndingManager.CurrentEndingCount++;
+        Time.timeScale = 0f;
     }
 }
