@@ -815,6 +815,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _emotionSpriteRenderer: {fileID: 100801377}
+  _movementSpeed: 3
   _emotionManager: {fileID: 753845554}
 --- !u!61 &604196684
 BoxCollider2D:
@@ -901,7 +902,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9a30e1576350b5541952bc6dc310b431, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 3
   _groundTilemap: {fileID: 1976235042}
   _wallTilemap: {fileID: 1863764847}
   _currentDirectionIndex: 3
@@ -1539,7 +1539,6 @@ GameObject:
   m_Component:
   - component: {fileID: 965048991}
   - component: {fileID: 965048995}
-  - component: {fileID: 965048994}
   - component: {fileID: 965048993}
   - component: {fileID: 965048992}
   m_Layer: 0
@@ -1624,19 +1623,6 @@ BoxCollider2D:
   m_AutoTiling: 0
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
---- !u!114 &965048994
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 965048990}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 40e340ee4ebe86b45924a03b7d5c939e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _itemType: 3
 --- !u!212 &965048995
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2422,6 +2408,7 @@ GameObject:
   - component: {fileID: 1191552553}
   - component: {fileID: 1191552552}
   - component: {fileID: 1191552551}
+  - component: {fileID: 1191552554}
   m_Layer: 0
   m_Name: Potion
   m_TagString: Untagged
@@ -2503,7 +2490,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 40e340ee4ebe86b45924a03b7d5c939e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemType: 1
+  _itemType: 4
 --- !u!212 &1191552553
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -2559,6 +2546,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1191552554
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1191552549}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7b18c94047e94b4cbfce3fe64dd8458, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _speed: 3
+  _durationInSeconds: 1
 --- !u!1 &1249311894
 GameObject:
   m_ObjectHideFlags: 0

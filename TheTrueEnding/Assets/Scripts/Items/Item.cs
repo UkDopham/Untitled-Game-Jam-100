@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 public class Item : MonoBehaviour
 {
@@ -8,12 +9,14 @@ public class Item : MonoBehaviour
     private bool _isDragging = false;
     private bool _shieldGiven = false;
     private Collider2D _knightCollider;
+    private Knight _knight;
 
     private void Start()
     {
         this._startPosition = transform.position;
 
-        this._knightCollider = GameObject.FindAnyObjectByType<Knight>().GetComponent<Collider2D>();
+        this._knight = FindAnyObjectByType<Knight>();
+        this._knightCollider = this._knight.GetComponent<Collider2D>();
     }
     private void Update()
     {
@@ -54,11 +57,21 @@ public class Item : MonoBehaviour
         Knight knight = this._knightCollider.GetComponent<Knight>();
         if (knight != null)
         {
+            if (this._itemType == ItemType.Potion)
+            {
+                Potion potion = GetComponentInChildren<Potion>();
+                if (potion != null)
+                {
+                    this._knight.UsePotion(potion);
+                }
+            }
+
             knight.AddItem(this._itemType);
             this._shieldGiven = true;
             Destroy(gameObject);
         }
     }
+
     private void ResetItemPosition()
     {
         transform.position = this._startPosition;

@@ -6,6 +6,7 @@ public class ScrollUI : MonoBehaviour, IPointerDownHandler
 {
     private TextMeshProUGUI _scrollText;
     private CanvasGroup _canvasGroup;
+    private bool _displayed = false;
 
     private void Awake()
     {
@@ -15,6 +16,10 @@ public class ScrollUI : MonoBehaviour, IPointerDownHandler
     }
     public void DisplayScroll(string text)
     {
+        if(this._displayed) 
+            return;
+
+        this._displayed = true;
         this._scrollText.text = text;
         this._canvasGroup.alpha = 1f;
     }

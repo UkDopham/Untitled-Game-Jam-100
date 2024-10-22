@@ -4,14 +4,13 @@ using UnityEngine.Tilemaps;
 public class KnightMovement : MonoBehaviour
 {
     [SerializeField]
-    private float _moveSpeed = 3f;
-    [SerializeField]
     private Tilemap _groundTilemap;
     [SerializeField]
     private Tilemap _wallTilemap;
     [SerializeField]
     [Range(0, 3)]
     private int _currentDirectionIndex = 3;
+    private Knight _knight;
 
     private Vector3Int _currentGridPosition;
     private bool _isMoving = false;
@@ -23,6 +22,10 @@ public class KnightMovement : MonoBehaviour
         Vector3Int.left,
         Vector3Int.right
     };
+    private void Awake()
+    {
+        this._knight = GetComponent<Knight>();
+    }
     private void Start()
     {
         Vector3 worldPosition = transform.position;
@@ -61,7 +64,7 @@ public class KnightMovement : MonoBehaviour
     }
     private void MoveKnight()
     {
-        transform.position = Vector3.MoveTowards(transform.position, this._targetPosition, this._moveSpeed * Time.deltaTime);
+        transform.position = Vector3.MoveTowards(transform.position, this._targetPosition, this._knight.MovementSpeed * Time.deltaTime);
 
         if (Vector3.Distance(transform.position, this._targetPosition) < 0.01f)
         {
