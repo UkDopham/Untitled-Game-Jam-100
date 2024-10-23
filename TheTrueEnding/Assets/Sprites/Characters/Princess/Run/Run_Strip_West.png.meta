@@ -235,7 +235,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      Run_Strip_West_0: -6177333663727205644
+      Run_Strip_West_1: -5573753217403786734
+      Run_Strip_West_2: -7957594809742250984
+      Run_Strip_West_3: -6216960064948917560
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      raptor-pounce-end_0: -2668610259821871
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

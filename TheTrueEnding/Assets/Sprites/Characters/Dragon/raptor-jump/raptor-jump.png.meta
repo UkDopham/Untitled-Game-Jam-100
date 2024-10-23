@@ -160,7 +160,8 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      raptor-jump_0: 6283952801597915733
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
