@@ -1,116 +1,128 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using System.Collections.Generic;
+using System;
 
 public class KnightMovement : MonoBehaviour
 {
     [SerializeField]
-    private Tilemap _groundTilemap;
+    private Pathfinding _pathfinding;
     [SerializeField]
-    private Tilemap _wallTilemap;
+    private Transform _target;
     [SerializeField]
-    [Range(0, 3)]
-    private int _currentDirectionIndex = 3;
-    private Knight _knight;
+    private Tilemap _tilemap;
+    [SerializeField]
+    private List<Point> _points = new List<Point>();
+    private Animator _animator;
 
-    private Vector3Int _currentGridPosition;
-    private bool _isMoving = false;
-    private Vector3 _targetPosition;
+    private List<Vector3Int> _path;
+    private int _currentPathIndex = 0;
+    private float _moveSpeed = 2f;
 
-    private Vector3Int[] _directions = new Vector3Int[] {
-        Vector3Int.up,
-        Vector3Int.down,
-        Vector3Int.left,
-        Vector3Int.right
-    };
-    private void Awake()
+    void Start()
     {
-        this._knight = GetComponent<Knight>();
+        this.MoveToNearestPoint();
+        this._animator = GetComponent<Animator>();
     }
-    private void Start()
-    {
-        Vector3 worldPosition = transform.position;
-        this._currentGridPosition = this._groundTilemap.WorldToCell(worldPosition);
-        SnapToGrid();
 
-        MoveTo(this._directions[this._currentDirectionIndex]);
-    }
-    private void Update()
+    void Update()
     {
-        if (this._isMoving)
+        if (this._path != null 
+            && this._path.Count > 0)
         {
-            MoveKnight();
+            try
+            {
+                MoveAlongPath();
+            }
+            catch (Exception e)
+            {
+                Debug.LogError(e.Message);
+            }
         }
+        print($"hello {Guid.NewGuid()}");
     }
-    private void MoveTo(Vector3Int direction)
-    {
-        Vector3Int newGridPosition = this._currentGridPosition + direction;
 
-        if (this.IsTileWalkable(newGridPosition))
+    private void MoveToNearestPoint()
+    {
+        if (this._points.Count == 0)
         {
-            this._currentGridPosition = newGridPosition;
-            this._targetPosition = this._groundTilemap.GetCellCenterWorld(this._currentGridPosition);
-            this._isMoving = true;
-        }
-        else
-        {
-            ChangeDirection();
-        }
-    }
-    private bool IsTileWalkable(Vector3Int gridPosition)
-    {
-        TileBase groundTile = this._groundTilemap.GetTile(gridPosition);
-        TileBase wallTile = this._wallTilemap.GetTile(gridPosition);
-        return groundTile != null && wallTile == null;
-    }
-    private void MoveKnight()
-    {
-        transform.position = Vector3.MoveTowards(transform.position, this._targetPosition, this._knight.MovementSpeed * Time.deltaTime);
-
-        if (Vector3.Distance(transform.position, this._targetPosition) < 0.01f)
-        {
-            this._isMoving = false;
-            SnapToGrid();
-
-            MoveTo(this._directions[this._currentDirectionIndex]);
-        }
-    }
-    private void SnapToGrid()
-    {
-        transform.position = this._groundTilemap.GetCellCenterWorld(this._currentGridPosition);
-    }
-    private void ChangeDirection()
-    {
-        this._currentDirectionIndex = (this._currentDirectionIndex + 1) % this._directions.Length;
-
-        MoveTo(this._directions[this._currentDirectionIndex]);
-    }
-    public void ChangeToOppositeDirection()
-    {
-        this._currentDirectionIndex = GetOppositeDirectionIndex(this._currentDirectionIndex);
-
-        MoveTo(this._directions[this._currentDirectionIndex]);
-    }
-    private int GetOppositeDirectionIndex(int directionIndex)
-    {
-        switch(directionIndex)
-        {
-            case 0:  
-                // Up -> Down
-                return 1;
-
-            case 1:
-                // Down -> Up
-                return 0;
-
-            case 2:
-                // Left -> Right
-                return 3;
-
-            case 3:
-                // Right -> Left
-                return 2;
+            return;
         }
 
-        return 0;
+        Vector3Int knightPosition = this._tilemap.WorldToCell(this.transform.position);
+
+        Point nearestPoint = null;
+        float nearestDistance = float.MaxValue;
+
+        foreach (Point point in this._points)
+        {
+            Vector3Int pointTilePosition = this._tilemap.WorldToCell(point.transform.position);
+            float distance = Vector3Int.Distance(knightPosition, pointTilePosition);
+
+            if (distance < nearestDistance)
+            {
+                nearestDistance = distance;
+                nearestPoint = point;
+            }
+        }
+
+        if (nearestPoint != null)
+        {
+            this.SetTarget(nearestPoint.transform);
+        }
+    }
+
+    private void CalculatePathToTarget()
+    {
+        Vector3Int startTile = this._tilemap.WorldToCell(this.transform.position);
+        Vector3Int endTile = this._tilemap.WorldToCell(this._target.position);
+
+        this._path = this._pathfinding.FindPath(startTile, endTile);
+
+        if (this._path == null || this._path.Count == 0)
+        {
+            Debug.Log("No path found, stopping movement.");
+            this._path = null; // No valid path, knight should stop moving
+            return;
+        }
+
+        this._currentPathIndex = 0;
+    }
+
+    private void MoveAlongPath()
+    {
+        if (this._currentPathIndex >= this._path.Count)
+        {
+            return;
+        }
+
+        Vector3 tileCenterOffset = new Vector3(this._tilemap.cellSize.x / 2, this._tilemap.cellSize.y / 2, 0);
+        Vector3 targetPosition = this._tilemap.CellToWorld(this._path[this._currentPathIndex]) + tileCenterOffset;
+
+        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, this._moveSpeed * Time.deltaTime);
+        
+        if (Vector3.Distance(this.transform.position, targetPosition) < 0.1f)
+        {
+            this._currentPathIndex++;
+
+            if (this._currentPathIndex >= this._path.Count)
+            {
+                Point visitedPoint = this._points.Find(p => p.transform == this._target);
+
+                if (visitedPoint != null)
+                {
+                    this._points.Remove(visitedPoint);
+                    Destroy(visitedPoint.gameObject); // Optional: Destroy the point if needed
+                }
+
+                this.MoveToNearestPoint(); // Move to the next nearest point
+            }
+        }
+    }
+
+    public void SetTarget(Transform newTarget)
+    {
+        this._target = newTarget;
+        this.CalculatePathToTarget();
     }
 }

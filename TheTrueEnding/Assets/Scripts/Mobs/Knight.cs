@@ -55,7 +55,7 @@ public class Knight : MonoBehaviour
         this._animator.SetTrigger("hit");
         //Sprite emotionSprite = this._emotionManager.GetSpriteByEmotion(Emotion.Scared);
         //this._emotionSpriteRenderer.sprite = emotionSprite;
-        this._knightMovement.ChangeToOppositeDirection();
+        //this._knightMovement.ChangeToOppositeDirection();
     }
     private void OnTriggerEnter2D(Collider2D other)
     {        
@@ -64,7 +64,7 @@ public class Knight : MonoBehaviour
         {
             if (!door.isOpen)
             {
-                this._knightMovement.ChangeToOppositeDirection();
+                //this._knightMovement.ChangeToOppositeDirection();
             }
             return;
         }
