@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.Tilemaps;
 using System.Collections.Generic;
-using System;
+using System.Linq;
 
 public class KnightMovement : MonoBehaviour
 {
@@ -11,8 +11,7 @@ public class KnightMovement : MonoBehaviour
     private Transform _target;
     [SerializeField]
     private Tilemap _tilemap;
-    [SerializeField]
-    private List<Point> _points = new List<Point>();
+    private List<Point> _points;
     private Animator _animator;
 
     private List<Vector3Int> _path;
@@ -21,42 +20,32 @@ public class KnightMovement : MonoBehaviour
 
     void Start()
     {
-        this.MoveToNearestPoint();
         this._animator = GetComponent<Animator>();
+        this._points = FindObjectsOfType<Point>().ToList();
+        MoveToNearestPoint();
     }
 
     void Update()
     {
-        if (this._path != null 
-            && this._path.Count > 0)
+        if (_path != null && _path.Count > 0)
         {
-            try
-            {
-                MoveAlongPath();
-            }
-            catch (Exception e)
-            {
-                Debug.LogError(e.Message);
-            }
+            MoveAlongPath();
         }
-        print($"hello {Guid.NewGuid()}");
     }
-
-    private void MoveToNearestPoint()
+    public void MoveToNearestPoint()
     {
-        if (this._points.Count == 0)
+        if (_points.Count == 0)
         {
             return;
         }
 
-        Vector3Int knightPosition = this._tilemap.WorldToCell(this.transform.position);
-
+        Vector3Int knightPosition = _tilemap.WorldToCell(this.transform.position);
         Point nearestPoint = null;
         float nearestDistance = float.MaxValue;
 
-        foreach (Point point in this._points)
+        foreach (Point point in _points)
         {
-            Vector3Int pointTilePosition = this._tilemap.WorldToCell(point.transform.position);
+            Vector3Int pointTilePosition = _tilemap.WorldToCell(point.transform.position);
             float distance = Vector3Int.Distance(knightPosition, pointTilePosition);
 
             if (distance < nearestDistance)
@@ -68,61 +57,67 @@ public class KnightMovement : MonoBehaviour
 
         if (nearestPoint != null)
         {
-            this.SetTarget(nearestPoint.transform);
+            SetTarget(nearestPoint.transform);
         }
     }
 
     private void CalculatePathToTarget()
     {
-        Vector3Int startTile = this._tilemap.WorldToCell(this.transform.position);
-        Vector3Int endTile = this._tilemap.WorldToCell(this._target.position);
+        Vector3Int startTile = _tilemap.WorldToCell(this.transform.position);
+        Vector3Int endTile = _tilemap.WorldToCell(this._target.position);
 
-        this._path = this._pathfinding.FindPath(startTile, endTile);
+        _path = _pathfinding.FindPath(startTile, endTile);
 
-        if (this._path == null || this._path.Count == 0)
+        if (_path == null || _path.Count == 0)
         {
-            Debug.Log("No path found, stopping movement.");
-            this._path = null; // No valid path, knight should stop moving
+            Debug.Log("No path found to the target. Stopping movement.");
+            _path = null;
             return;
         }
 
-        this._currentPathIndex = 0;
+        _currentPathIndex = 0;
     }
 
     private void MoveAlongPath()
     {
-        if (this._currentPathIndex >= this._path.Count)
+        if (_currentPathIndex >= _path.Count)
         {
             return;
         }
 
-        Vector3 tileCenterOffset = new Vector3(this._tilemap.cellSize.x / 2, this._tilemap.cellSize.y / 2, 0);
-        Vector3 targetPosition = this._tilemap.CellToWorld(this._path[this._currentPathIndex]) + tileCenterOffset;
+        Vector3 tileCenterOffset = new Vector3(_tilemap.cellSize.x / 2, _tilemap.cellSize.y / 2, 0);
+        Vector3 targetPosition = _tilemap.CellToWorld(_path[_currentPathIndex]) + tileCenterOffset;
 
-        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, this._moveSpeed * Time.deltaTime);
-        
+        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, _moveSpeed * Time.deltaTime);
+
         if (Vector3.Distance(this.transform.position, targetPosition) < 0.1f)
         {
-            this._currentPathIndex++;
+            _currentPathIndex++;
 
-            if (this._currentPathIndex >= this._path.Count)
+            if (_currentPathIndex >= _path.Count)
             {
-                Point visitedPoint = this._points.Find(p => p.transform == this._target);
+                Point visitedPoint = _points.Find(p => p.transform == _target);
 
                 if (visitedPoint != null)
                 {
-                    this._points.Remove(visitedPoint);
-                    Destroy(visitedPoint.gameObject); // Optional: Destroy the point if needed
+                    _points.Remove(visitedPoint);
+                    Destroy(visitedPoint.gameObject);
                 }
 
-                this.MoveToNearestPoint(); // Move to the next nearest point
+                MoveToNearestPoint();
             }
         }
     }
 
     public void SetTarget(Transform newTarget)
     {
-        this._target = newTarget;
-        this.CalculatePathToTarget();
+        _target = newTarget;
+        CalculatePathToTarget();
+
+        if (_path == null || _path.Count == 0)
+        {
+            Debug.Log("Unable to reach target. No valid path available.");
+            _target = null;
+        }
     }
 }

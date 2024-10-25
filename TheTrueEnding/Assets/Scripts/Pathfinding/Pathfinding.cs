@@ -13,95 +13,62 @@ public class Pathfinding : MonoBehaviour
     {
         this._doors = FindObjectsOfType<Door>().ToList();
     }
+
     public List<Vector3Int> FindPath(Vector3Int start, Vector3Int end)
     {
-        Node startNode = new Node(start, this.IsTileWalkable(start));
-        Node endNode = new Node(end, this.IsTileWalkable(end));
-
-        if (!startNode._isWalkable || !endNode._isWalkable)
+        if (!IsTileWalkable(start) || !IsTileWalkable(end))
         {
-            Debug.Log("Either the start or end node is not walkable.");
+            Debug.Log("Start or end position is not walkable.");
             return null;
         }
 
-        List<Node> openList = new List<Node>();
-        HashSet<Node> closedList = new HashSet<Node>();
+        Queue<Node> queue = new Queue<Node>();
+        HashSet<Vector3Int> visited = new HashSet<Vector3Int>();
+        Dictionary<Vector3Int, Vector3Int> cameFrom = new Dictionary<Vector3Int, Vector3Int>();
 
-        openList.Add(startNode);
-        int j = 0;
-        while (openList.Count > 0)
+        queue.Enqueue(new Node(start, true));
+        visited.Add(start);
+
+        while (queue.Count > 0)
         {
-            print($"Hello {j}");
-            Node currentNode = openList[0];
-            for (int i = 1; i < openList.Count; i++)
+            Node currentNode = queue.Dequeue();
+
+            if (currentNode._position == end)
             {
-                if (openList[i].FCost < currentNode.FCost || (openList[i].FCost == currentNode.FCost && openList[i]._hCost < currentNode._hCost))
+                return RetracePath(start, end, cameFrom);
+            }
+
+            foreach (Vector3Int direction in new Vector3Int[] { Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right })
+            {
+                Vector3Int neighborPos = currentNode._position + direction;
+
+                if (!visited.Contains(neighborPos) && IsTileWalkable(neighborPos))
                 {
-                    currentNode = openList[i];
+                    queue.Enqueue(new Node(neighborPos, true));
+                    visited.Add(neighborPos);
+                    cameFrom[neighborPos] = currentNode._position;
                 }
             }
-
-            openList.Remove(currentNode);
-            closedList.Add(currentNode);
-
-            if (currentNode._position == endNode._position)
-            {
-                return this.RetracePath(startNode, currentNode);
-            }
-
-            foreach (Node neighbor in this.GetNeighbors(currentNode))
-            {
-                if (!neighbor._isWalkable || closedList.Contains(neighbor))
-                    continue;
-
-                int newGCost = currentNode._gCost + this.GetDistance(currentNode, neighbor);
-                if (newGCost < neighbor._gCost || !openList.Contains(neighbor))
-                {
-                    neighbor._gCost = newGCost;
-                    neighbor._hCost = this.GetDistance(neighbor, endNode);
-                    neighbor._parent = currentNode;
-
-                    if (!openList.Contains(neighbor))
-                        openList.Add(neighbor);
-                }
-            }
-            j++;
         }
 
         Debug.Log("No path found.");
-        return null; // No path found, return null to indicate failure.
+        return null;
     }
-    private List<Vector3Int> RetracePath(Node startNode, Node endNode)
+
+    private List<Vector3Int> RetracePath(Vector3Int start, Vector3Int end, Dictionary<Vector3Int, Vector3Int> cameFrom)
     {
         List<Vector3Int> path = new List<Vector3Int>();
-        Node currentNode = endNode;
+        Vector3Int current = end;
 
-        while (currentNode != startNode)
+        while (current != start)
         {
-            path.Add(currentNode._position);
-            currentNode = currentNode._parent;
+            path.Add(current);
+            current = cameFrom[current];
         }
-
         path.Reverse();
         return path;
     }
-    private List<Node> GetNeighbors(Node node)
-    {
-        List<Node> neighbors = new List<Node>();
-        Vector3Int[] directions = { Vector3Int.up, Vector3Int.down, Vector3Int.left, Vector3Int.right };
 
-        foreach (Vector3Int direction in directions)
-        {
-            Vector3Int neighborPos = node._position + direction;
-            neighbors.Add(new Node(neighborPos, this.IsTileWalkable(neighborPos)));
-        }
-
-        return neighbors;
-    }
-    private int GetDistance(Node a, Node b)
-    {
-        return Mathf.Abs(a._position.x - b._position.x) + Mathf.Abs(a._position.y - b._position.y);
-    }
     private bool IsTileWalkable(Vector3Int tilePosition)
     {
         TileBase tile = this._tilemap.GetTile(tilePosition);

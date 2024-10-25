@@ -8,6 +8,8 @@ public class Door : MonoBehaviour
     [SerializeField]
     private Tilemap _tilemap;
     private Animator _animator;
+    [SerializeField]
+    private KnightMovement _knightMovement;
 
     public bool isOpen
     {
@@ -24,6 +26,11 @@ public class Door : MonoBehaviour
     {
         this._isOpen = !this._isOpen;
         this._animator.SetBool("isOpen", this._isOpen);
+
+        if (this._isOpen)
+        {
+            this._knightMovement.MoveToNearestPoint();
+        }
     }
     public bool IsOnSameTile(Vector3Int vector)
     {
