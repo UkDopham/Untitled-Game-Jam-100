@@ -1,7 +1,7 @@
 public enum Scene
 {
-    Level = 0,
-    Menu = 1,
+    Menu = 0,
+    Level = 1,
     Tutorial = 2,
     Credits = 3,
 }
