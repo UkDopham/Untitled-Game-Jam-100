@@ -30,10 +30,7 @@ public class Door : MonoBehaviour
         this._animator.SetBool("isOpen", this._isOpen);
         this._audioSource.Play();
 
-        if (this._isOpen)
-        {
-            this._knightMovement.MoveToNearestPoint();
-        }
+        this._knightMovement.MoveToNearestPoint();
     }
     public bool IsOnSameTile(Vector3Int vector)
     {
