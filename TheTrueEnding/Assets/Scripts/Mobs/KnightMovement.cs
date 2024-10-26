@@ -13,17 +13,17 @@ public class KnightMovement : MonoBehaviour
     private Tilemap _tilemap;
     private List<Point> _points;
     private Animator _animator;
-
+    private Knight _knight;
     private List<Vector3Int> _path;
     private int _currentPathIndex = 0;
-    private float _moveSpeed = 2f;
-    private float idleTime =0f;
+    private float idleTime = 0f;
 
     void Start()
     {
         this._animator = GetComponent<Animator>();
         this._points = FindObjectsOfType<Point>().ToList();
-        MoveToNearestPoint();
+        this._knight = GetComponent<Knight>();
+        MoveToNearestPoint(); // Initial path calculation
     }
 
     void Update()
@@ -32,36 +32,32 @@ public class KnightMovement : MonoBehaviour
         {
             MoveAlongPath();
         }
+
         if (this.idleTime == 0)
             this.idleTime = Time.time;
         if (Time.time - this.idleTime > 1f)
             this._animator.SetTrigger("idle");
     }
 
-    private void SetRunAnimation(Vector3 vectionDirection)
+    private void SetRunAnimation(Vector3 direction)
     {
         this.idleTime = 0f;
-        if (vectionDirection.y < -0.8)
+        if (direction.y < -0.8)
             this._animator.SetTrigger("run_bottom");
-        else if (vectionDirection.y > 0.8)
+        else if (direction.y > 0.8)
             this._animator.SetTrigger("run_top");
-        else if (vectionDirection.x > 0.8)
+        else if (direction.x > 0.8)
             this._animator.SetTrigger("run_right");
-        else if (vectionDirection.x < -0.8)
+        else if (direction.x < -0.8)
             this._animator.SetTrigger("run_left");
-        else
-            Debug.Log($"No animation found. x={vectionDirection.x} y={vectionDirection.y}");
-        Debug.Log($"Animation . x={vectionDirection.x} y={vectionDirection.y}");
     }
+
     public void MoveToNearestPoint()
     {
-        if (_points.Count == 0)
-        {
-            return;
-        }
+        if (_points.Count == 0) return;
 
         Vector3Int knightPosition = _tilemap.WorldToCell(this.transform.position);
-        Point nearestPoint = null;
+        Point nearestAccessiblePoint = null;
         float nearestDistance = float.MaxValue;
 
         foreach (Point point in _points)
@@ -71,14 +67,23 @@ public class KnightMovement : MonoBehaviour
 
             if (distance < nearestDistance)
             {
-                nearestDistance = distance;
-                nearestPoint = point;
+                _path = _pathfinding.FindPath(knightPosition, pointTilePosition);
+
+                if (_path != null && _path.Count > 0)
+                {
+                    nearestDistance = distance;
+                    nearestAccessiblePoint = point;
+                }
             }
         }
 
-        if (nearestPoint != null)
+        if (nearestAccessiblePoint != null)
         {
-            SetTarget(nearestPoint.transform);
+            SetTarget(nearestAccessiblePoint.transform);
+        }
+        else
+        {
+            Debug.Log("No accessible points found.");
         }
     }
 
@@ -105,11 +110,12 @@ public class KnightMovement : MonoBehaviour
         {
             return;
         }
+
         Vector3 tileCenterOffset = new Vector3(_tilemap.cellSize.x / 2, _tilemap.cellSize.y / 2, 0);
         Vector3 targetPosition = _tilemap.CellToWorld(_path[_currentPathIndex]) + tileCenterOffset;
         SetRunAnimation((targetPosition - gameObject.transform.position).normalized);
 
-        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, _moveSpeed * Time.deltaTime);
+        this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, this._knight.MovementSpeed * Time.deltaTime);
 
         if (Vector3.Distance(this.transform.position, targetPosition) < 0.1f)
         {
@@ -125,7 +131,7 @@ public class KnightMovement : MonoBehaviour
                     Destroy(visitedPoint.gameObject);
                 }
 
-                MoveToNearestPoint();
+                MoveToNearestPoint(); // Look for the next nearest point
             }
         }
     }

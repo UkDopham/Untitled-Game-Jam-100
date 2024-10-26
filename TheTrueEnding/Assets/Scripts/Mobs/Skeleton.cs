@@ -19,13 +19,19 @@ public class Skeleton : MonoBehaviour
     }
     private void Update()
     {
-        float distanceToKnight = Vector2.Distance(transform.position, this._knight.position);
-
-        if (distanceToKnight <= this._attackRange 
-            && Time.time >= this._nextFireTime)
+        try
         {
-            ShootArrow();
-            this._nextFireTime = Time.time + this._fireRate;
+            float distanceToKnight = Vector2.Distance(transform.position, this._knight.position);
+
+            if (distanceToKnight <= this._attackRange
+                && Time.time >= this._nextFireTime)
+            {
+                ShootArrow();
+                this._nextFireTime = Time.time + this._fireRate;
+            }
+        }
+        catch (System.Exception e)
+        {
         }
     }
 

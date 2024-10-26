@@ -1,4 +1,5 @@
 public enum Scene
 {
-    Menu = 0,
+    Level = 0,
+    Menu = 1,
 }

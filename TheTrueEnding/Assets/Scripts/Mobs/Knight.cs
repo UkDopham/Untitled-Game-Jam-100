@@ -1,3 +1,4 @@
+using Assets.Scripts.Constants;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -67,29 +68,84 @@ public class Knight : MonoBehaviour
             return;
         }
 
+        Death();
+    }
+    private void Death()
+    {
         this._animator.SetTrigger("death");
         PlayClip(this._deathClip);
-        EndingManager.CurrentEndings.Add(Assets.Scripts.Constants.Endings.death);
-        Time.timeScale = 0f;
-        this._endingUI.LoadEndingText($"DEATH");
+        EndingManager.CurrentEndings.Add(Endings.death);
+        this._endingUI.LoadEndingText($"The knight has died.");
     }
-    public void Hurt()
+    public void Stop()
     {
-        if(this._knightMovement == null)
+        Destroy(this.gameObject);
+    }
+    private void OnTriggerEnter2D(Collider2D other)
+    {
+        Ending ending = null;
+
+        Princess princess = other.GetComponent<Princess>();
+        if (princess != null)
         {
+            ending = princess.GetComponent<Ending>();
+            if (ending.IsContitionsMet(this._items))
+            {
+                PlayClip(this._fightClip);
+                princess.Death();
+            }
+            else
+            {
+                ending.StartEnding();
+            }
             return;
         }
 
-        if (this._items.Contains(ItemType.Shield))
+        Dragon dragon = other.GetComponent<Dragon>();
+        if (dragon != null)
         {
-            this._animator.SetTrigger("shield");
+            ending = dragon.GetComponent<Ending>();
+            if (ending.IsContitionsMet(this._items))
+            {
+                ending.StartEnding();
+                return;
+            }
+
+            if (this._items.Contains(ItemType.Sword) && this._items.Contains(ItemType.Shield))
+            {
+                PlayClip(this._fightClip);
+                dragon.Death();
+            }
+            else
+            {
+                Death();
+            }
             return;
         }
-        this._animator.SetTrigger("hit");
-    }
-    private void OnTriggerEnter2D(Collider2D other)
-    {        
-        Ending ending = other.GetComponent<Ending>();
+
+        Demon demon = other.GetComponent<Demon>();
+        if (demon != null)
+        {
+            ending = princess.GetComponent<Ending>();
+            if (this._items.Contains(ItemType.Sword))
+            {
+                PlayClip(this._fightClip);
+                demon.Death();
+            }
+        }
+
+        Skeleton skeleton = other.GetComponent<Skeleton>();
+        if (skeleton != null)
+        {
+            if (this._items.Contains(ItemType.Sword))
+            {
+                PlayClip(this._fightClip);
+                skeleton.Death();
+            }
+            return;
+        }
+
+        ending = other.GetComponent<Ending>();
         if (ending != null)
         {
             ending.Interact(this._items);
@@ -103,18 +159,9 @@ public class Knight : MonoBehaviour
             scroll.DisplayScroll();
             return;
         }
-        
 
-        Skeleton skeleton = other.GetComponent<Skeleton>();
-        if (skeleton != null)
-        {
-            if (this._items.Contains(ItemType.Sword))
-            {
-                PlayClip(this._fightClip);
-                skeleton.Death();
-            }
-            return;
-        }            
+
+
     }
     public void UsePotion(Potion potion)
     {

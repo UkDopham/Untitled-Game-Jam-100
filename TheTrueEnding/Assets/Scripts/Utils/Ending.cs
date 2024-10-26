@@ -29,9 +29,9 @@ public class Ending : MonoBehaviour
         }
 
         // End
-        End();
+        StartEnding();
     }
-    private bool IsContitionsMet(List<ItemType> itemTypes)
+    public bool IsContitionsMet(List<ItemType> itemTypes)
     {
         foreach (ItemType type in this._endingConditions)
         {
@@ -42,12 +42,15 @@ public class Ending : MonoBehaviour
         }
         return true;
     }
-    private void End()
+    public void StartEnding()
     {
         print("END");
         SetActionByEnding();
-        EndingManager.CurrentEndings.Add(this._endingType);
-        Time.timeScale = 0f;
+
+        if(!EndingManager.CurrentEndings.Contains(_endingType))
+        {
+            EndingManager.CurrentEndings.Add(this._endingType);
+        }
         this._endingUI.LoadEndingText(this._endingText);
     }
     private void SetActionByEnding()
