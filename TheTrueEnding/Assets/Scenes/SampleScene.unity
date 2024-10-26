@@ -2804,7 +2804,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 604196680}
-  m_Enabled: 0
+  m_Enabled: 1
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 299689254973e6c47b5fd68585528aa9, type: 2}
   m_CullingMode: 0
@@ -4722,6 +4722,7 @@ GameObject:
   - component: {fileID: 1072870191}
   - component: {fileID: 1072870192}
   - component: {fileID: 1072870193}
+  - component: {fileID: 1072870194}
   m_Layer: 0
   m_Name: Princess
   m_TagString: Untagged
@@ -4811,6 +4812,28 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fc8f36ce0fdf4bd479eac17f289c473f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!95 &1072870194
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1072870190}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: b57c653f9bb8c554994f00e9334da845, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1119975616
 GameObject:
   m_ObjectHideFlags: 0
@@ -5225,6 +5248,7 @@ GameObject:
   - component: {fileID: 1182000389}
   - component: {fileID: 1182000391}
   - component: {fileID: 1182000390}
+  - component: {fileID: 1182000392}
   m_Layer: 0
   m_Name: Skeleton Philipin
   m_TagString: Untagged
@@ -5364,6 +5388,28 @@ MonoBehaviour:
   _knight: {fileID: 604196682}
   _attackRange: 3
   _fireRate: 2
+--- !u!95 &1182000392
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1182000387}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7465cdf976552fc4580755a7bb1868ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1199960290
 GameObject:
   m_ObjectHideFlags: 0
@@ -5873,6 +5919,7 @@ GameObject:
   - component: {fileID: 1369480192}
   - component: {fileID: 1369480191}
   - component: {fileID: 1369480190}
+  - component: {fileID: 1369480193}
   m_Layer: 0
   m_Name: Demon Philipin
   m_TagString: Untagged
@@ -6012,6 +6059,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1369480193
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1369480188}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: e9ec8dd30f8b4cc43840caa9983201d2, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1418706665
 GameObject:
   m_ObjectHideFlags: 0
@@ -7892,6 +7961,7 @@ GameObject:
   - component: {fileID: 1798045433}
   - component: {fileID: 1798045432}
   - component: {fileID: 1798045431}
+  - component: {fileID: 1798045434}
   m_Layer: 0
   m_Name: 'Princess Philipin '
   m_TagString: Untagged
@@ -8031,6 +8101,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1798045434
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1798045429}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 6237794c0b98e7c4b8425912053d2e9c, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1815249848
 GameObject:
   m_ObjectHideFlags: 0
@@ -13585,6 +13677,7 @@ GameObject:
   - component: {fileID: 1918423340}
   - component: {fileID: 1918423339}
   - component: {fileID: 1918423338}
+  - component: {fileID: 1918423341}
   m_Layer: 0
   m_Name: Drake Philipin
   m_TagString: Untagged
@@ -13724,6 +13817,28 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &1918423341
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1918423336}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: bf59a8f82c9dc974f91008bc21567db4, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1976235039
 GameObject:
   m_ObjectHideFlags: 0
