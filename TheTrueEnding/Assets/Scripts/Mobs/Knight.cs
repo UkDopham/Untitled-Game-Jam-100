@@ -85,6 +85,13 @@ public class Knight : MonoBehaviour
     {
         Ending ending = null;
 
+        AudioDetector audioDetector = other.GetComponent<AudioDetector>();
+        if (audioDetector != null)
+        {
+            audioDetector.PlayAudio();
+            return;
+        }
+
         Princess princess = other.GetComponent<Princess>();
         if (princess != null)
         {
@@ -99,6 +106,17 @@ public class Knight : MonoBehaviour
                 ending.StartEnding();
             }
             return;
+        }
+
+        Golem golem = other.GetComponent<Golem>();
+        if (golem != null)
+        {
+            ending = golem.GetComponent<Ending>();
+            if (this._items.Contains(ItemType.Sword))
+            {
+                PlayClip(this._fightClip);
+                golem.Death();
+            }
         }
 
         Dragon dragon = other.GetComponent<Dragon>();
@@ -126,7 +144,7 @@ public class Knight : MonoBehaviour
         Demon demon = other.GetComponent<Demon>();
         if (demon != null)
         {
-            ending = princess.GetComponent<Ending>();
+            ending = demon.GetComponent<Ending>();
             if (this._items.Contains(ItemType.Sword))
             {
                 PlayClip(this._fightClip);
