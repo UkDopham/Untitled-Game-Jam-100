@@ -17,6 +17,7 @@ public class KnightMovement : MonoBehaviour
     private List<Vector3Int> _path;
     private int _currentPathIndex = 0;
     private float _moveSpeed = 2f;
+    private float idleTime =0f;
 
     void Start()
     {
@@ -31,6 +32,26 @@ public class KnightMovement : MonoBehaviour
         {
             MoveAlongPath();
         }
+        if (this.idleTime == 0)
+            this.idleTime = Time.time;
+        if (Time.time - this.idleTime > 1f)
+            this._animator.SetTrigger("idle");
+    }
+
+    private void SetRunAnimation(Vector3 vectionDirection)
+    {
+        this.idleTime = 0f;
+        if (vectionDirection.y < -0.8)
+            this._animator.SetTrigger("run_bottom");
+        else if (vectionDirection.y > 0.8)
+            this._animator.SetTrigger("run_top");
+        else if (vectionDirection.x > 0.8)
+            this._animator.SetTrigger("run_right");
+        else if (vectionDirection.x < -0.8)
+            this._animator.SetTrigger("run_left");
+        else
+            Debug.Log($"No animation found. x={vectionDirection.x} y={vectionDirection.y}");
+        Debug.Log($"Animation . x={vectionDirection.x} y={vectionDirection.y}");
     }
     public void MoveToNearestPoint()
     {
@@ -84,9 +105,9 @@ public class KnightMovement : MonoBehaviour
         {
             return;
         }
-
         Vector3 tileCenterOffset = new Vector3(_tilemap.cellSize.x / 2, _tilemap.cellSize.y / 2, 0);
         Vector3 targetPosition = _tilemap.CellToWorld(_path[_currentPathIndex]) + tileCenterOffset;
+        SetRunAnimation((targetPosition - gameObject.transform.position).normalized);
 
         this.transform.position = Vector3.MoveTowards(this.transform.position, targetPosition, _moveSpeed * Time.deltaTime);
 
