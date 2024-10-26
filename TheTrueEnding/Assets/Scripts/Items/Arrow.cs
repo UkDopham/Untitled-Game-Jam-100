@@ -26,7 +26,7 @@ public class Arrow : MonoBehaviour
             Knight knight = other.GetComponent<Knight>();
             if (knight != null)
             {
-                knight.Hurt();
+                knight.Hit();
             }
             Destroy(this.gameObject);
         }

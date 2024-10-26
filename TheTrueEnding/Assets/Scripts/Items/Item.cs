@@ -10,6 +10,8 @@ public class Item : MonoBehaviour
     private bool _shieldGiven = false;
     private Collider2D _knightCollider;
     private Knight _knight;
+    private AudioSource _audioSource;
+    private SpriteRenderer _spriteRenderer;
 
     private void Start()
     {
@@ -17,6 +19,8 @@ public class Item : MonoBehaviour
 
         this._knight = FindAnyObjectByType<Knight>();
         this._knightCollider = this._knight.GetComponent<Collider2D>();
+        this._audioSource = GetComponent<AudioSource>();
+        this._spriteRenderer = GetComponent<SpriteRenderer>();
     }
     private void Update()
     {
@@ -65,10 +69,11 @@ public class Item : MonoBehaviour
                     this._knight.UsePotion(potion);
                 }
             }
-
+            this._audioSource.Play();
+            this._spriteRenderer.enabled = false;
             knight.AddItem(this._itemType);
             this._shieldGiven = true;
-            Destroy(gameObject);
+            Destroy(gameObject, 0.5f);
         }
     }
 

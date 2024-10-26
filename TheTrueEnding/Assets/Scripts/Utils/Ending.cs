@@ -11,11 +11,13 @@ public class Ending : MonoBehaviour
     private List<ItemType> _endingConditions = new List<ItemType>();
     [SerializeField]
     private Endings _endingType;
+    private Knight _knight;
     private EndingUI _endingUI;
 
     private void Awake()
     {
         this._endingUI = FindAnyObjectByType<EndingUI>();
+        this._knight = FindAnyObjectByType<Knight>();
     }
     public void Interact(List<ItemType> itemTypes)
     {
@@ -43,8 +45,17 @@ public class Ending : MonoBehaviour
     private void End()
     {
         print("END");
+        SetActionByEnding();
         EndingManager.CurrentEndings.Add(this._endingType);
         Time.timeScale = 0f;
         this._endingUI.LoadEndingText(this._endingText);
+    }
+    private void SetActionByEnding()
+    {
+        switch (this._endingType)
+        {
+            case Endings.trap:
+                break;
+        }
     }
 }

@@ -5,5 +5,6 @@ public enum ItemType
     Sword,
     Key,
     Scroll,
-    Potion
+    Potion,
+
 }

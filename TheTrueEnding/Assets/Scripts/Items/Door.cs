@@ -10,6 +10,7 @@ public class Door : MonoBehaviour
     private Animator _animator;
     [SerializeField]
     private KnightMovement _knightMovement;
+    private AudioSource _audioSource;
 
     public bool isOpen
     {
@@ -21,11 +22,13 @@ public class Door : MonoBehaviour
     private void Awake()
     {
         this._animator = GetComponent<Animator>();
+        this._audioSource = GetComponent<AudioSource>();
     }
     private void OnMouseDown()
     {
         this._isOpen = !this._isOpen;
         this._animator.SetBool("isOpen", this._isOpen);
+        this._audioSource.Play();
 
         if (this._isOpen)
         {
