@@ -117,6 +117,11 @@ public class Knight : MonoBehaviour
                 PlayClip(this._fightClip);
                 golem.Death();
             }
+            else
+            {
+                PlayClip(golem.AttackClip);
+                Death();
+            }
         }
 
         Dragon dragon = other.GetComponent<Dragon>();
@@ -136,6 +141,7 @@ public class Knight : MonoBehaviour
             }
             else
             {
+                PlayClip(dragon.AttackClip);
                 Death();
             }
             return;
@@ -150,6 +156,11 @@ public class Knight : MonoBehaviour
                 PlayClip(this._fightClip);
                 demon.Death();
             }
+            else
+            {
+                PlayClip(this._fightClip);
+                Death();
+            }
         }
 
         Skeleton skeleton = other.GetComponent<Skeleton>();
@@ -160,7 +171,11 @@ public class Knight : MonoBehaviour
                 PlayClip(this._fightClip);
                 skeleton.Death();
             }
-            return;
+            else
+            {
+                PlayClip(this._fightClip);
+                Death();
+            }
         }
 
         ending = other.GetComponent<Ending>();
