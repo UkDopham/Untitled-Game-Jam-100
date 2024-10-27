@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class Golem : MonoBehaviour
 {
+    private Animator _animator;
     private AudioSource _audioSource;
     [SerializeField]
     private AudioClip _attackClip;
@@ -30,4 +31,5 @@ public class Golem : MonoBehaviour
         this._audioSource.Play();
         Destroy(gameObject, 0.5f);
     }
+
 }
