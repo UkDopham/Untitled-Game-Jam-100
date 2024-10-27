@@ -55,10 +55,5 @@ public class Ending : MonoBehaviour
     }
     private void SetActionByEnding()
     {
-        switch (this._endingType)
-        {
-            case Endings.trap:
-                break;
-        }
     }
 }

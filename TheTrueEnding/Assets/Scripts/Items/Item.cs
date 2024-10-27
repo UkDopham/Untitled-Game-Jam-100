@@ -13,6 +13,7 @@ public class Item : MonoBehaviour
     private Knight _knight;
     private AudioSource _audioSource;
     private SpriteRenderer _spriteRenderer;
+    private ScrollUI _scrollUI;
 
     public Sprite Sprite
     {
@@ -30,6 +31,7 @@ public class Item : MonoBehaviour
         this._audioSource = GetComponent<AudioSource>();
         this._spriteRenderer = GetComponent<SpriteRenderer>();
         this._itemUI = FindAnyObjectByType<ItemUI>();
+        this._scrollUI = FindAnyObjectByType<ScrollUI>();
     }
     private void Update()
     {
@@ -77,6 +79,13 @@ public class Item : MonoBehaviour
                 {
                     this._knight.UsePotion(potion);
                 }
+            }
+
+            if(this._itemType == ItemType.Scroll)
+            {
+                this._scrollUI.DisplayScroll("Beware the princess, for she harbors a dark secret. \n" +
+                    "The one you seek to save is no maiden in distress, but a demon, poised to unleash chaos upon the realm. \n" +
+                    "Only the dragon, feared by many, holds the key to her defeat. Do not free her.");
             }
             this._itemUI.AddItem(this);
             this._audioSource.Play();

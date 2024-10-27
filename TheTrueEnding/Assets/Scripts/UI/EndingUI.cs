@@ -1,9 +1,10 @@
 using System.Collections;
 using TMPro;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.SceneManagement;
 
-public class EndingUI : MonoBehaviour
+public class EndingUI : MonoBehaviour, IPointerClickHandler
 {
     [SerializeField]
     private TextMeshProUGUI _endingCounter;
@@ -31,6 +32,8 @@ public class EndingUI : MonoBehaviour
 
     public void LoadEndingText(string text)
     {
+        this._canvasGroup.interactable = true;
+        this._canvasGroup.blocksRaycasts = true;
         this._endingCounter.text = $"{EndingManager.CurrentEndings.Count} / {this._endingTotalCount} endings completed";
         this._endingText.text = text;
         this._animator.SetTrigger("start");
@@ -51,6 +54,11 @@ public class EndingUI : MonoBehaviour
             countdown--;
         }
 
+        SceneManager.LoadScene((int)Scene.Level);
+    }
+
+    public void OnPointerClick(PointerEventData eventData)
+    {
         SceneManager.LoadScene((int)Scene.Level);
     }
 }

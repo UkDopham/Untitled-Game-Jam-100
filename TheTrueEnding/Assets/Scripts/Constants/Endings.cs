@@ -5,7 +5,6 @@
         chest,
         princess,
         dragon,
-        trap,
         death,
     }
 }
