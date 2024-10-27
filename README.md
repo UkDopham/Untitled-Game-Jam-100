@@ -29,8 +29,8 @@ You can play it at this [url](https://youknowgasai.itch.io/the-true-ending)
 
 ## Credits
 
-Alexis François
-Lionel Elisabeth
-Alexandre Do Pham
+- Alexis François
+- Lionel Elisabeth
+- Alexandre Do Pham
 
 Enjoy exploring *The True Ending*!
