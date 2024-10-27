@@ -11,16 +11,23 @@ public class KnightMovement : MonoBehaviour
     private Transform _target;
     [SerializeField]
     private Tilemap _tilemap;
+    [SerializeField]
+    private AudioClip _walkingSound; // Walking sound clip
     private List<Point> _points;
     private Animator _animator;
     private Knight _knight;
     private List<Vector3Int> _path;
     private int _currentPathIndex = 0;
     private float idleTime = 0f;
+    [SerializeField]
+    private AudioSource _audioSource;
 
     void Start()
     {
         this._animator = GetComponent<Animator>();
+        this._audioSource = gameObject.AddComponent<AudioSource>();
+        this._audioSource.clip = _walkingSound;
+        this._audioSource.loop = true;
         this._points = FindObjectsOfType<Point>().ToList();
         this._knight = GetComponent<Knight>();
         MoveToNearestPoint(); // Initial path calculation
@@ -31,6 +38,17 @@ public class KnightMovement : MonoBehaviour
         if (_path != null && _path.Count > 0)
         {
             MoveAlongPath();
+            if (!_audioSource.isPlaying)
+            {
+                _audioSource.Play();
+            }
+        }
+        else
+        {
+            if (_audioSource.isPlaying)
+            {
+                _audioSource.Stop();
+            }
         }
 
         if (this.idleTime == 0)
