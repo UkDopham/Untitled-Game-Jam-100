@@ -19,6 +19,7 @@ public class Ending : MonoBehaviour
         this._endingUI = FindAnyObjectByType<EndingUI>();
         this._knight = FindAnyObjectByType<Knight>();
     }
+
     public void Interact(List<ItemType> itemTypes)
     {
         bool isContitionsMet = IsContitionsMet(itemTypes);

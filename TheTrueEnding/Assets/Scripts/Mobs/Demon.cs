@@ -22,6 +22,6 @@ public class Demon : MonoBehaviour
     public void Death()
     {
         this._animator.SetTrigger("hit");
-        Destroy(gameObject);
+        Destroy(gameObject,1f);
     }
 }

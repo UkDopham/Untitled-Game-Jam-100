@@ -107,6 +107,8 @@ public class Knight : MonoBehaviour
             }
             return;
         }
+        
+        
 
         Golem golem = other.GetComponent<Golem>();
         if (golem != null)
@@ -181,9 +183,10 @@ public class Knight : MonoBehaviour
         ending = other.GetComponent<Ending>();
         if (ending != null)
         {
-            ending.Interact(this._items);
+            ending.Interact(this._items);    
             return;
         }
+
 
         Scroll scroll = other.GetComponent<Scroll>();
         if (scroll != null)

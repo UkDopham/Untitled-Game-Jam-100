@@ -5846,7 +5846,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _emotionSpriteRenderer: {fileID: 100801377}
-  _movementSpeed: 2
+  _movementSpeed: 5
   _emotionManager: {fileID: 753845554}
   _endingUI: {fileID: 4435573310371618282}
   _walkClip: {fileID: 0}
@@ -7233,7 +7233,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1131914083
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 53629341, guid: ee2ae77a636219d44ac6791216a5eea3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -7755,7 +7755,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1131914083
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 53629341, guid: ee2ae77a636219d44ac6791216a5eea3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -14511,7 +14511,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: The End
+  m_text: The End ... or is it?
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: c4e0b1d0bd855044787ca83b883ce846, type: 2}
   m_sharedMaterial: {fileID: -7490931374543251401, guid: c4e0b1d0bd855044787ca83b883ce846, type: 2}
@@ -15070,7 +15070,7 @@ Animator:
   m_GameObject: {fileID: 1798045429}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 9100000, guid: 3010c0b1eaa74414abb88189c5fefd1b, type: 2}
+  m_Controller: {fileID: 9100000, guid: 6237794c0b98e7c4b8425912053d2e9c, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -85701,7 +85701,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1131914083
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: -9000362276992120081, guid: ee2ae77a636219d44ac6791216a5eea3, type: 3}
   m_Color: {r: 1, g: 0.051886797, b: 0.051886797, a: 1}
   m_FlipX: 0
@@ -86438,7 +86438,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1131914083
   m_SortingLayer: 2
-  m_SortingOrder: 0
+  m_SortingOrder: -1
   m_Sprite: {fileID: 53629341, guid: ee2ae77a636219d44ac6791216a5eea3, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0

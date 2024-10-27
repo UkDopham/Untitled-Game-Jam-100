@@ -31,10 +31,11 @@ public class Dragon : MonoBehaviour
     }
     public void Death()
     {
-        this._spriteRenderer.enabled = false;
+        this._animator.SetTrigger("hit");
+        // this._spriteRenderer.enabled = false;
         this._audioSource.clip = this._deathClip;
         this._audioSource.Play();
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 1f);
     }
 
 }

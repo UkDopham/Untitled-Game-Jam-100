@@ -18,6 +18,10 @@ public class Golem : MonoBehaviour
         }
     }
 
+    private void Awake()
+    {
+        this._animator = GetComponent<Animator>();
+    }
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -26,10 +30,11 @@ public class Golem : MonoBehaviour
     }
     public void Death()
     {
-        this._spriteRenderer.enabled = false;
+        this._animator.SetTrigger("hit");
+        // this._spriteRenderer.enabled = false;
         this._audioSource.clip = this._deathClip;
         this._audioSource.Play();
-        Destroy(gameObject, 0.5f);
+        Destroy(gameObject, 1f);
     }
 
 }
