@@ -3,6 +3,8 @@
 **Game for Untitled-Game-Jam-100**  
 [Untitled-Game-Jam-100](https://itch.io/jam/untitled-game-jam-100)  
 
+You can play it at this [url](https://youknowgasai.itch.io/the-true-ending)
+
 ## About the Game
 
 *The True Ending* is an interactive journey where you guide a lone knight through a perilous dungeon. Unlike traditional controls, you don’t directly command the knight—instead, you influence his journey by carefully offering items and unlocking doors. Each choice you make sends the knight down a unique path, leading to multiple possible endings. Your choices determine if he finds glory, meets his doom, or reaches the elusive “true ending.”
