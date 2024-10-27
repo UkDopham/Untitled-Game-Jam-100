@@ -8,6 +8,7 @@ public class Dragon : MonoBehaviour
     [SerializeField]
     private AudioClip _deathClip;
     private SpriteRenderer _spriteRenderer;
+    private Animator _animator;
 
     public AudioClip AttackClip
     {
@@ -16,6 +17,12 @@ public class Dragon : MonoBehaviour
             return _attackClip;
         }
     }
+
+    private void Awake()
+    {
+        this._animator = GetComponent<Animator>();
+    }
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -29,4 +36,5 @@ public class Dragon : MonoBehaviour
         this._audioSource.Play();
         Destroy(gameObject, 0.5f);
     }
+
 }

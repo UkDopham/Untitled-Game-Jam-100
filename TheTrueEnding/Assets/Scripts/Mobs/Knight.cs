@@ -72,7 +72,7 @@ public class Knight : MonoBehaviour
     }
     private void Death()
     {
-        this._animator.SetTrigger("death");
+        this._animator.SetTrigger("hit");
         PlayClip(this._deathClip);
         EndingManager.CurrentEndings.Add(Endings.death);
         this._endingUI.LoadEndingText($"The knight has died.");
