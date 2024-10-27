@@ -21,11 +21,14 @@ public class EndingUI : MonoBehaviour
     private AudioSource _audioSourceMusic;
     [SerializeField]
     private AudioSource _audioSource;
+    [SerializeField]
+    private TextMeshProUGUI _restartCount;
 
     private void Awake()
     {
         this._endingCounter.text = $"{EndingManager.CurrentEndings.Count} / {this._endingTotalCount} endings completed";
     }
+
     public void LoadEndingText(string text)
     {
         this._endingCounter.text = $"{EndingManager.CurrentEndings.Count} / {this._endingTotalCount} endings completed";
@@ -36,10 +39,18 @@ public class EndingUI : MonoBehaviour
         this._audioSource.Play();
         StartCoroutine(StartAgain());
     }
+
     IEnumerator StartAgain()
     {
-        yield return new WaitForSeconds(5);
+        int countdown = 10; // Countdown timer in seconds
+
+        while (countdown > 0)
+        {
+            _restartCount.text = $"Restarting in {countdown}...";
+            yield return new WaitForSeconds(1);
+            countdown--;
+        }
+
         SceneManager.LoadScene((int)Scene.Level);
-        yield return null;
     }
 }

@@ -12,10 +12,12 @@ public class Skeleton : MonoBehaviour
     private float _fireRate = 2f;
     private float _nextFireTime = 0f;
     private Transform _firePoint;
+    private AudioSource _audioSource;
 
     private void Awake()
     {
         this._firePoint = GetComponent<Transform>();
+        this._audioSource = GetComponent<AudioSource>();
     }
     private void Update()
     {
@@ -38,10 +40,10 @@ public class Skeleton : MonoBehaviour
     private void ShootArrow()
     {
         GameObject arrow = Instantiate(this._arrowPrefab, this._firePoint.position, this._firePoint.rotation);
-
         Arrow arrowScript = arrow.GetComponent<Arrow>();
         if (arrowScript != null)
         {
+            this._audioSource.Play();
             arrowScript.SetTarget(this._knight.transform.position);
         }
     }
